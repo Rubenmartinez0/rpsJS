@@ -1,6 +1,9 @@
 $(document).ready(function() {
     let userHandshape = -1;
     $("#user-points,#computer-points").text("0");
+
+    //$("#texts-container").css("background-color", "red");
+
     
     $("#rock-id").click(function() {
         var result = calculateResult(0);
@@ -55,10 +58,11 @@ $(document).ready(function() {
         switch(result){
             case(0):
                 $("#result-text").text("YOU WIN");
-                $("#result-text").css("color", "green");
+                $("#result-text").css("color", "white");
                 var value = parseInt($('#user-points').text());
                 value++;
                 $("#user-points").text(value);
+                $("#texts-container").animate({backgroundColor: "#66ff99", color: "black" }, 100 );
 
                 switch(userHandshape){
                     case(0):
@@ -78,10 +82,11 @@ $(document).ready(function() {
 
             case(1):
                 $("#result-text").text("YOU LOSE");
-                $("#result-text").css("color", "red");
+                $("#result-text").css("color", "white");
                 var value = parseInt($('#computer-points').text());
                 value++;
                 $("#computer-points").text(value);
+                $("#texts-container").animate({backgroundColor: "#ff4d4d", color: "black" }, 100 );
 
                 switch(userHandshape){
                     case(0):
@@ -103,6 +108,7 @@ $(document).ready(function() {
             case(2):
                 $("#result-text").text("DRAW");
                 $("#result-text").css("color", "black");
+                $("#texts-container").animate({backgroundColor: "#ADD8E6", color: "black" }, 100 );
                 switch(userHandshape){
                     case(0):
                         $("#user-selection-text").text("You played with rock");

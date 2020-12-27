@@ -6,3 +6,16 @@
     margin-top: 3em;
 }
 
+#texts-container{
+    margin: 1em;
+    padding: 5px;
+    border-radius: 2em;
+    transition:background-color 0.5s ease;
+}
+.red-bg {
+    background-color:red;
+}
+
+.green-bg {
+    background-color:red;
+}

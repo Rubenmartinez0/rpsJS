@@ -9,10 +9,14 @@
 
         <!-- Import JQuery/AJAX -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <title>rpcJS</title>
     </head>
     <body>
+        
         <div class="container">
             <div class="row">
                 <div id="rock-id" class="col-xs-3 col-sm-3 col-md-3 mr-5">
@@ -27,8 +31,8 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="col-md-10 mt-5">
+        <div class="container col-4">
+            <div id="texts-container">
                 <h4 id="user-selection-text" class="d-flex justify-content-center m-3">Select your handshape</h4>
                 <h4 id="computer-selection-text" class="d-flex justify-content-center m-3"></h4>
                 <h4 id="result-text" class="d-flex justify-content-center m-3 font-weight-bold"></h4>
