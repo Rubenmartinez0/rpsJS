@@ -1,0 +1,56 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Import custom css -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Bootsrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Import JQuery/AJAX -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+        <title>rpcJS</title>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="row col-md-10 justify-content-center">
+                <div id="rock-id" class="m-2">
+                    <img src="img/rock.png" class="rounded-circle" alt="Rock image" width="250" height="250">
+                    <br>
+                    <span>Rock</span>
+                </div>
+                <div id="paper-id" class="m-2">
+                    <img src="img/paper.png" class="rounded-circle" alt="Rock image" width="250" height="250">
+                    <br>
+                    <span>Paper</span>
+                </div>
+                <div id="scissors-id" class="m-2">
+                    <img src="img/scissors.png" class="rounded-circle" alt="Rock image" width="250" height="250"> 
+                    <br>
+                    <span>Scissors</span>
+                </div>
+                
+                
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-10 mt-5">
+                <h4 id="user-selection-text" class="d-flex justify-content-center m-3">Select your handshape</h4>
+                <h4 id="computer-selection-text" class="d-flex justify-content-center m-3"></h4>
+                <h4 id="result-text" class="d-flex justify-content-center m-3 font-weight-bold"></h4>
+                <div class="d-flex justify-content-center mt-5 m-3">
+                    <h4>You <span id="user-points">0</span> vs <span id="computer-points">0</span> Computer</h4>
+                </div>
+            </div>
+        </div>
+
+        
+       
+        <!-- Import Javascript file -->
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
