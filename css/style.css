@@ -12,10 +12,11 @@
     border-radius: 2em;
     transition:background-color 0.5s ease;
 }
-.red-bg {
-    background-color:red;
-}
 
-.green-bg {
-    background-color:red;
-}
+
+.circle {
+    height: 1em;
+    width: 1em;
+    background-color: #ADD8E6;
+    border-radius: 50%;
+  }

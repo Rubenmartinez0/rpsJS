@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let userHandshape = -1;
     $("#user-points,#computer-points").text("0");
-
+    $("#texts-container").animate({backgroundColor: "#ADD8E6", color: "black" }, 100 );
     //$("#texts-container").css("background-color", "red");
 
     
@@ -62,8 +62,8 @@ $(document).ready(function() {
                 var value = parseInt($('#user-points').text());
                 value++;
                 $("#user-points").text(value);
-                $("#texts-container").animate({backgroundColor: "#66ff99", color: "black" }, 100 );
-
+                $("#texts-container").animate({backgroundColor: "#66FF99", color: "black" }, 100 );
+                $("#results-row").append("<div class='circle m-1' style='background-color: green;'></div>");
                 switch(userHandshape){
                     case(0):
                         $("#user-selection-text").text("You played with rock");
@@ -86,8 +86,8 @@ $(document).ready(function() {
                 var value = parseInt($('#computer-points').text());
                 value++;
                 $("#computer-points").text(value);
-                $("#texts-container").animate({backgroundColor: "#ff4d4d", color: "black" }, 100 );
-
+                $("#texts-container").animate({backgroundColor: "#FF4D4D", color: "black" }, 100 );
+                $("#results-row").append("<div class='circle m-1' style='background-color: red;'></div>");
                 switch(userHandshape){
                     case(0):
                         $("#user-selection-text").text("You played with rock");
@@ -109,6 +109,7 @@ $(document).ready(function() {
                 $("#result-text").text("DRAW");
                 $("#result-text").css("color", "black");
                 $("#texts-container").animate({backgroundColor: "#ADD8E6", color: "black" }, 100 );
+                $("#results-row").append("<div class='circle m-1' style='background-color: #ADD8E6;'></div>");
                 switch(userHandshape){
                     case(0):
                         $("#user-selection-text").text("You played with rock");
