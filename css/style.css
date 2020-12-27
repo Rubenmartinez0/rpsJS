@@ -1,2 +1,8 @@
 #rock-id:hover, #paper-id:hover, #scissors-id:hover {
+    margin-top: 1em;
 }
+
+#rock-id, #paper-id, #scissors-id {
+    margin-top: 3em;
+}
+

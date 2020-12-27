@@ -1,103 +1,124 @@
 $(document).ready(function() {
     let userHandshape = -1;
     $("#user-points,#computer-points").text("0");
-    // $("#rock-id").click(function() {
-    //     $("#user-selection-text").text("You played with rock");
-    //     userHandshape = 0;
-    //     computerHandshape = getRndInteger(0,2);
-    //     if(computerHandshape === 0){
-    //         $("#computer-selection-text").text("Computer played with rock");
-    //         $("#result-text").text("DRAW");
-    //         $("#result-text").css("color", "black");
-    //     }else if(computerHandshape === 1){
-    //         $("#computer-selection-text").text("Computer played with paper");
-    //         $("#result-text").text("YOU LOSE");
-    //         $("#result-text").css("color", "red");
-            
-    //         var value = parseInt($('#computer-points').text());
-    //         value++;
-    //         $("#computer-points").text(value);
-    //     }else{
-    //         $("#computer-selection-text").text("Computer played with scissors");
-    //         $("#result-text").text("YOU WIN");
-    //         $("#result-text").css("color", "green");
-    //         var value = parseInt($('#user-points').text());
-    //         value++;
-    //         $("#user-points").text(value);
-    //     }
-    // });
-    
-    // $("#paper-id").click(function() {
-    //     $("#user-selection-text").text("You played with paper");
-    //     userHandshape = 1;
-    //     computerHandshape = getRndInteger(0,2);
-    //     if(computerHandshape === 0){
-    //         $("#computer-selection-text").text("Computer played with rock");
-    //         $("#result-text").text("YOU WIN");
-    //         $("#result-text").css("color", "green");
-    //     }else if(computerHandshape === 1){
-    //         $("#computer-selection-text").text("Computer played with paper");
-    //         $("#result-text").text("DRAW");
-    //         $("#result-text").css("color", "black");
-    //     }else{
-    //         $("#computer-selection-text").text("Computer played with scissors");
-    //         $("#result-text").text("YOU LOSE");
-    //         $("#result-text").css("color", "red");
-    //     }
-    // });
-
-    // $("#scissors-id").click(function() {
-    //     $("#user-selection-text").text("You played with scissors");
-    //     userHandshape = 2;
-    //     computerHandshape = getRndInteger(0,2);
-    //     if(computerHandshape === 0){
-    //         $("#computer-selection-text").text("Computer played with rock");
-    //         $("#result-text").text("YOU LOSE");
-    //         $("#result-text").css("color", "red");
-    //     }else if(computerHandshape === 1){
-    //         $("#computer-selection-text").text("Computer played with paper");
-    //         $("#result-text").text("YOU WIN");
-    //         $("#result-text").css("color", "green");
-    //     }else{
-    //         $("#computer-selection-text").text("Computer played with scissors");
-    //         $("#result-text").text("DRAW");
-    //         $("#result-text").css("color", "black");
-    //     }
-    // });
     
     $("#rock-id").click(function() {
-        calculateResult(0);
+        var result = calculateResult(0);
+        printResult(0, result);
     });
 
     $("#paper-id").click(function() {
-        calculateResult(1);
+        var result = calculateResult(1);
+        printResult(1, result);
     });
 
     $("#scissors-id").click(function() {
-        calculateResult(2);
+        var result = calculateResult(2);
+        printResult(2, result);
     });
     function calculateResult(userHandshape) {
         computerHandshape = getRndInteger(0,2);
+        // 0 -> user wins; 1 -> computer wins; 2 -> draw
+        // 0 -> rock; 1 -> paper; 2 -> scissors
+        if(userHandshape === computerHandshape){
+            return 2 // DRAW
+        }
+
         switch(computerHandshape){
             case(0):
-                
+                if(userHandshape === 1){
+                    return 0 // USER WINS
+                }else{
+                    return 1 // COMPUTER WINS
+                }
             break;
             case(1):
+                if(userHandshape === 0){
+                    return 1 // COMPUTER WINS
+                }else{
+                    return 0 // USER WINS
+                }
             break;
             case(2):
+                if(userHandshape === 0){
+                    return 0 // USER WINS
+                }else{
+                    return 1 // COMPUTER WINS
+                }
             break;
-
-
         }
     }
 
-    function printResult(result) {
-        // 0 -> user wins
-        // 1 -> computer wins
-        // 2 -> draw
+    function printResult(userHandshape, result) {
+        // 0 -> user wins; 1 -> computer wins; 2 -> draw
+        // 0 -> rock; 1 -> paper; 2 -> scissors
+        switch(result){
+            case(0):
+                $("#result-text").text("YOU WIN");
+                $("#result-text").css("color", "green");
+                var value = parseInt($('#user-points').text());
+                value++;
+                $("#user-points").text(value);
+
+                switch(userHandshape){
+                    case(0):
+                        $("#user-selection-text").text("You played with rock");
+                        $("#computer-selection-text").text("Computer played with scissors");
+                    break;
+                    case(1):
+                        $("#user-selection-text").text("You played with paper");
+                        $("#computer-selection-text").text("Computer played with rock");
+                    break;
+                    case(2):
+                        $("#user-selection-text").text("You played with scissors");
+                        $("#computer-selection-text").text("Computer played with paper");
+                    break;
+                }
+            break;
+
+            case(1):
+                $("#result-text").text("YOU LOSE");
+                $("#result-text").css("color", "red");
+                var value = parseInt($('#computer-points').text());
+                value++;
+                $("#computer-points").text(value);
+
+                switch(userHandshape){
+                    case(0):
+                        $("#user-selection-text").text("You played with rock");
+                        $("#computer-selection-text").text("Computer played with paper");
+                    break;
+                    case(1):
+                        $("#user-selection-text").text("You played with paper");
+                        $("#computer-selection-text").text("Computer played with scissors");
+                    break;
+                    case(2):
+                        $("#user-selection-text").text("You played with scissors");
+                        $("#computer-selection-text").text("Computer played with rock");
+                    break;
+                }
+            break;
 
 
-       
+            case(2):
+                $("#result-text").text("DRAW");
+                $("#result-text").css("color", "black");
+                switch(userHandshape){
+                    case(0):
+                        $("#user-selection-text").text("You played with rock");
+                        $("#computer-selection-text").text("Computer played with rock");
+                    break;
+                    case(1):
+                        $("#user-selection-text").text("You played with paper");
+                        $("#computer-selection-text").text("Computer played with paper");
+                    break;
+                    case(2):
+                        $("#user-selection-text").text("You played with scissors");
+                        $("#computer-selection-text").text("Computer played with scissors");
+                    break;
+                }
+            break;
+        }
     }
     
     function getRndInteger(min, max) {
